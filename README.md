@@ -1,3 +1,5 @@
+![cats](./images/mint_choco_latte.png)
+
 # af3filter
 Filter AlphaFold 3 Server Outputs
 
