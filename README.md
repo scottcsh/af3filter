@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./images/mint_choco_latte.png" alt="cats" width="50%"/>
+<img src="./images/mint_choco_latte.png" alt="cats" width="75%"/>
 </p>
 
 # af3filter
