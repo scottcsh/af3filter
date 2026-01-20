@@ -28,6 +28,7 @@ Options:
   --score       Minimum ranking_score value (optional)
   
   --pae         Maximum allowed chain_pair_pae_min[0][1] value (optional)
+                in default, PAE of the second chain is selected
   
   --max_output  Limit output to top N entries sorted by average(iptm, ptm, score)
   
