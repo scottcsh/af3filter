@@ -1,4 +1,6 @@
-![cats](./images/mint_choco_latte.png)
+<p align="center">
+<img src="./images/mint_choco_latte.png" alt="cats" width="50%"/>
+</p>
 
 # af3filter
 Filter AlphaFold 3 Server Outputs
