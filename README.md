@@ -6,8 +6,9 @@ Filter AlphaFold 3 Server Outputs
 git clone https://github.com/scottcsh/af3filter.git
 ```
 
-**Requirements: jq**
-in Centos7
+**Requirements:**
+
+jq in Centos7
 ```bash
 yum install jq -y
 ```
@@ -36,7 +37,7 @@ yum install jq -y
   
   --help		Show help message
 </pre>
-**Example**
+**Example:**
 ```bash
 ./AF3_filter.sh --dir folds_2026_01_20_02_08/ --iptm 0.7 --ptm 0.7 --score 0.8 --pae 1.8 --max_output 20
 ```
