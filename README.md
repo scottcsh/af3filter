@@ -9,7 +9,7 @@ git clone https://github.com/scottcsh/af3filter.git
 **Requirements: jq**
 in Centos7
 ```bash
-sudo yum install jq -y
+yum install jq -y
 ```
 
 **Usage:**
