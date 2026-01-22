@@ -2,16 +2,13 @@
 <img src="./images/mint_choco_latte.png" alt="cats" width="75%"/>
 </p>
 
-# af3filter
-Filter AlphaFold 3 Server Outputs
-
-# mpnn2afserver
-Filter AlphaFold 3 Server Outputs
-
 **Installation:**
 ```bash
 git clone https://github.com/scottcsh/af3filter.git
 ```
+
+# af3filter
+Filter AlphaFold 3 Server Outputs
 
 **Requirements:**
 
@@ -47,4 +44,15 @@ yum install jq -y
 **Example:**
 ```bash
 ./AF3_filter.sh --dir folds_2026_01_20_02_08/ --iptm 0.7 --ptm 0.7 --score 0.8 --pae 1.8 --max_output 20
+```
+
+# mpnn2afserver
+Process ProteinMPNN fasta files into AFserver_input.json
+
+**Usage:**
+./mpmm2afserver.sh --dir <fasta directory> --fa <target protein fasta>
+
+**Example:**
+```bash
+./mpnn2afserver.sh --dir seqs/ --fa 1sy6.fa
 ```
