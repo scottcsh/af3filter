@@ -5,6 +5,9 @@
 # af3filter
 Filter AlphaFold 3 Server Outputs
 
+# mpnn2afserver
+Filter AlphaFold 3 Server Outputs
+
 **Installation:**
 ```bash
 git clone https://github.com/scottcsh/af3filter.git
