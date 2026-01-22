@@ -50,7 +50,7 @@ yum install jq -y
 Process ProteinMPNN fasta files into AFserver_input.json
 
 **Usage:**
-./mpmm2afserver.sh --dir <fasta directory> --fa <target protein fasta>
+./mpmm2afserver.sh --dir [fasta directory] --fa [target protein fasta]
 
 **Example:**
 ```bash
