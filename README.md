@@ -118,3 +118,8 @@ PyMOL in Windows
    </pre>
 2. Run **PyMOLWin**
 3. File > Run Script > **pdb2png_PyMOL.py**
+
+</br>
+</br>
+
+[Return to top](#Table-of-Contents)
