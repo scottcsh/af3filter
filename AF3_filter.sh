@@ -67,7 +67,9 @@ echo " --------------------------------- "
 
 
 # Collect data
-find "$DIR" -type f -name "*summary_confidences*.json" | while read FILE; do
+find "$DIR" -type f -name "*summary_confidences*.json" \
+| grep -vE '_job_[0-9]+_summary_confidences\.json$' \
+| while read FILE; do
     iptm=$(jq '.iptm' "$FILE")
     ptm=$(jq '.ptm' "$FILE")
     ranking_score=$(jq '.ranking_score' "$FILE")
