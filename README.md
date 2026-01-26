@@ -5,7 +5,7 @@
 ## Table of Contents
 - [af3filter](#af3filter)
 - [mpnn2afserver](#mpnn2afserver)
-- [PyMOL_save_pdb_thumbnails](#PyMOL_save_pdb_thumbnails)
+- [pdb2png_PyMOL](#pdb2png_PyMOL)
 
 **Installation:**
 ```bash
@@ -70,4 +70,19 @@ Process ProteinMPNN fasta files into AFserver_input.json
 ```
 
 
-# PyMOL_save_pdb_thumbnails
+# pdb2png_PyMOL
+
+**Requirements:**
+
+PyMOL in Windows
+
+**Usage:**
+
+1. Edit **pdb2png_PyMOL.py** with notepad
+   
+   <pre>
+   pdb_path = r"C:\dir\input\*.pdb"
+   output_dir = r"C:\dir\folder_for_output_thumnails"
+   </pre>
+2. Run **PyMOLWin**
+3. File > Run Script > **pdb2png_PyMOL.py**
