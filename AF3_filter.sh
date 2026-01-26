@@ -59,7 +59,7 @@ TMPFILE=$(mktemp)
 
 echo " --------------------------------- "
 echo "|Filter AlphaFold 3 Server Outputs|"
-echo "|Last modified 2026.01.20.  v1.0.0|"
+echo "|Last modified 2026.01.26.  v1.1.0|"
 echo "|GIST jinlab       Choi, Seung Hun|"
 echo " --------------------------------- "
 echo "Now processing..."
@@ -85,20 +85,49 @@ find "$DIR" -type f -name "*summary_confidences*.json" | while read FILE; do
     if [ -n "$PAE_THRESHOLD" ] && (( $(echo "$pae_second >= $PAE_THRESHOLD" | bc -l) )); then pass=false; fi
 
     if [ "$pass" = true ]; then
-        avg=$(echo "($iptm + $ptm + $ranking_score)/3" | bc -l)
+        avg=$(echo "($iptm + $ptm + $ranking_score)/3" | bc -l | tr -d ' \n')
         # keep avg only for sorting, not in final output
         echo "$(basename "$FILE"),$iptm,$ptm,$ranking_score,$pae_second,$avg" >> "$TMPFILE"
     fi
 done
 
 # Sort by average desc, limit, then sort by filename asc
+
 {
-  echo "filename,iptm,ptm,ranking_score,pae_second"
+  FINAL=$(mktemp)
+
   if [ -n "$MAX_OUTPUT" ]; then
-    sort -t',' -k6 -nr "$TMPFILE" | head -n "$MAX_OUTPUT" | sort -t',' -k1,1 | cut -d',' -f1-5
+    awk -F',' '{print $6 "," $0}' "$TMPFILE" \
+    | sort -t',' -k1,1nr \
+    | head -n "$MAX_OUTPUT" > "$FINAL"
   else
-    sort -t',' -k6 -nr "$TMPFILE" | sort -t',' -k1,1 | cut -d',' -f1-5
+    awk -F',' '{print $6 "," $0}' "$TMPFILE" \
+    | sort -t',' -k1,1nr > "$FINAL"
   fi
+
+	echo "Final jobs"
+	awk -F',' '{print $2}' "$FINAL" \
+	| sed -n 's/^\(.*_job_\([0-9]\+\)\).*/\1 \2/p' \
+	| awk '{
+		job=$1
+		num=$2
+		sub(/_job_[0-9]+$/, "", job)
+		print job, num, $1
+	  }' \
+	| sort -k1,1 -k2,2n \
+	| awk '{print $3}' \
+	| uniq
+
+  echo "-----------------------------------------------------------------"
+
+  echo "filename,avg,iptm,ptm,ranking_score,pae_second"
+
+  awk -F',' '{
+      printf "%s,%.2f,%s,%s,%s,%s\n",
+             $2,$7,$3,$4,$5,$6
+    }' "$FINAL"
+
+  rm "$FINAL"
 } | column -t -s, > "$OUTPUT"
 
 rm "$TMPFILE"
