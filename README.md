@@ -60,7 +60,7 @@ yum install jq -y
   
   --score		Minimum ranking_score value (optional)
   
-  --pae			Maximum allowed chain_pair_pae_min[0][1] value (optional)
+  --pae			Maximum allowed chain_pair_pae_min value (optional)
   
   --chain_id    Chain ID (A–E) to select chain_pair_pae_min value
   
