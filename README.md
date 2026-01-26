@@ -35,7 +35,8 @@ yum install jq -y
 	(or run alphafold 3 in the local workstation)
 
 2. Unzip the results, run the script as:
-./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
+
+	./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
 
 **Options:**
 <pre>
