@@ -8,9 +8,15 @@
 - [pdb2png_PyMOL](#pdb2png_PyMOL)
 
 **Installation:**
+
+Linux
 ```bash
 git clone https://github.com/scottcsh/af3filter.git
 ```
+Windows
+<pre>
+Code > Download ZIP
+</pre>
 
 # af3filter
 Filter AlphaFold 3 Server Outputs
