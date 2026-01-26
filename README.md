@@ -5,7 +5,7 @@
 ## Table of Contents
 - [af3filter](#af3filter)
 - [mpnn2afserver](#mpnn2afserver)
-- [pdb2png_PyMOL](#pdb2png_PyMOL)
+- [pdb2png](#pdb2png)
   
 </br>
 
@@ -98,7 +98,7 @@ Process ProteinMPNN fasta files into AFserver_input.json
 
 </br>
 
-# pdb2png_PyMOL
+# pdb2png
 
 </br>
 
