@@ -18,7 +18,8 @@ yum install jq -y
 ```
 
 **Usage:**
-1. Run & Download alphafold results from https://alphafoldserver.com/ in zip file
+1-1. Run & Download alphafold results from https://alphafoldserver.com/ in zip file
+1-2. Run alphafold 3 in the local workstation
 2. Unzip the results, run the script as:
 ./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
 
