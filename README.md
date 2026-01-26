@@ -13,7 +13,7 @@
 
 Linux
 ```bash
-git clone https://github.com/scottcsh/protdesign.git
+git clone https://github.com/scottcsh/protdesign
 ```
 Windows
 <pre>
