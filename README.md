@@ -62,7 +62,7 @@ yum install jq -y
   
   --pae			Maximum allowed chain_pair_pae_min value (optional)
   
-  --chain_id    Chain ID (A–E) to select chain_pair_pae_min value
+  --chain_id    Chain ID (A–E) to select chain_pair_pae_min value (required for --pae option)
   
   --max_output	Limit output to top N entries sorted by average(iptm, ptm, score)
   
