@@ -6,6 +6,8 @@
 - [af3filter](#af3filter)
 - [mpnn2afserver](#mpnn2afserver)
 - [pdb2png_PyMOL](#pdb2png_PyMOL)
+  
+</br>
 
 **Installation:**
 
@@ -21,6 +23,8 @@ Code > Download ZIP
 # af3filter
 Filter AlphaFold 3 Server Outputs
 
+</br>
+
 **Requirements:**
 
 jq in Centos7
@@ -28,15 +32,21 @@ jq in Centos7
 yum install jq -y
 ```
 
+</br>
+
 **Usage:**
+
 
 1. Run & Download alphafold results from https://alphafoldserver.com/ in zip file
 
 	(or run alphafold 3 in the local workstation)
 
 2. Unzip the results, run the script as:
+<pre>
+./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
+</pre>
 
-	./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
+</br>
 
 **Options:**
 <pre>
@@ -59,29 +69,42 @@ yum install jq -y
   
   --help		Show help message
 </pre>
+
+</br>
+
 **Example:**
 ```bash
 ./AF3_filter.sh --dir folds_2026_01_20_02_08/ --iptm 0.7 --ptm 0.7 --score 0.8 --pae 1.8 --chain_id A --max_output 50
 ```
 
+</br>
 
 # mpnn2afserver
 Process ProteinMPNN fasta files into AFserver_input.json
 
+</br>
+
 **Usage:**
 ./mpmm2afserver.sh --dir [fasta directory] --fa [target protein fasta] --max_job [number of jobs per json]
+
+</br>
 
 **Example:**
 ```bash
 ./mpnn2afserver.sh --dir seqs/ --fa 1sy6.fa --max_job 100
 ```
 
+</br>
 
 # pdb2png_PyMOL
+
+</br>
 
 **Requirements:**
 
 PyMOL in Windows
+
+</br>
 
 **Usage:**
 
