@@ -7,6 +7,7 @@ PTM_THRESHOLD=""
 SCORE_THRESHOLD=""
 PAE_THRESHOLD=""
 MAX_OUTPUT=""
+CHAIN_ID=""
 
 # Option parsing
 while [[ $# -gt 0 ]]; do
@@ -18,8 +19,9 @@ while [[ $# -gt 0 ]]; do
     --score) SCORE_THRESHOLD="$2"; shift 2 ;;
     --pae) PAE_THRESHOLD="$2"; shift 2 ;;
     --max_output) MAX_OUTPUT="$2"; shift 2 ;;
+    --chain_id) CHAIN_ID="$2"; shift 2 ;;
     --help)
-      echo "Usage: $0 --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--max_output <N>]"
+      echo "Usage: $0 --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>] "
       echo ""
       echo "Options:"
       echo "  --dir         Root directory containing JSON files (required)"
@@ -27,7 +29,8 @@ while [[ $# -gt 0 ]]; do
       echo "  --iptm        Minimum iptm value (optional)"
       echo "  --ptm         Minimum ptm value (optional)"
       echo "  --score       Minimum ranking_score value (optional)"
-      echo "  --pae         Maximum allowed chain_pair_pae_min[0][1] value (optional)"
+      echo "  --pae         Maximum allowed chain_pair_pae_min value (optional)"
+      echo "  --chain_id    Chain ID (A–E) to select diagonal chain_pair_pae_min value"
       echo "  --max_output  Limit output to top N entries sorted by average(iptm, ptm, score)"
       echo "  --help        Show this help message"
       exit 0
@@ -38,6 +41,17 @@ done
 
 if [ -z "$DIR" ]; then
   echo "You must specify a directory."
+  exit 1
+fi
+
+# chain_id → index (A=0, B=1, ..., E=4)
+if [ -n "$CHAIN_ID" ]; then
+  IDX=$(printf "%d" "'$CHAIN_ID")
+  IDX=$((IDX - 65))
+fi
+
+if [ -n "$CHAIN_ID" ] && { [ "$IDX" -lt 0 ] || [ "$IDX" -gt 4 ]; }; then
+  echo "Invalid --chain_id: $CHAIN_ID (must be A–E)"
   exit 1
 fi
 
@@ -57,7 +71,12 @@ find "$DIR" -type f -name "*summary_confidences*.json" | while read FILE; do
     iptm=$(jq '.iptm' "$FILE")
     ptm=$(jq '.ptm' "$FILE")
     ranking_score=$(jq '.ranking_score' "$FILE")
-    pae_second=$(jq '.chain_pair_pae_min[0][1]' "$FILE")
+
+    if [ -n "$CHAIN_ID" ]; then
+        pae_second=$(jq ".chain_pair_pae_min[$IDX][$IDX]" "$FILE")
+    else
+        pae_second=$(jq '.chain_pair_pae_min[0][1]' "$FILE")
+    fi
 
     pass=true
     if [ -n "$IPTM_THRESHOLD" ] && (( $(echo "$iptm < $IPTM_THRESHOLD" | bc -l) )); then pass=false; fi
@@ -86,5 +105,3 @@ rm "$TMPFILE"
 
 echo "Results saved to $OUTPUT"
 echo " --------------------------------- "
-
-
