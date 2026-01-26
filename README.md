@@ -2,6 +2,10 @@
 <img src="./images/mint_choco_latte.png" alt="cats" width="75%"/>
 </p>
 
+## Table of Contents
+- [af3filter](#af3filter)
+- [mpnn2afserver](#mpnn2afserver)
+
 **Installation:**
 ```bash
 git clone https://github.com/scottcsh/af3filter.git
