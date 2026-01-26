@@ -42,9 +42,9 @@ yum install jq -y
 	(or run alphafold 3 in the local workstation)
 
 2. Unzip the results, run the script as:
-<pre>
-./AF3_filter.sh --dir <json directory> [--out <output filename>] [--iptm <threshold>] [--ptm <threshold>] [--score <threshold>] [--pae <threshold>] [--chain_id <A-E>] [--max_output <N>]
-</pre>
+```bash
+./AF3_filter.sh --dir <json directory> --out <output filename> --iptm <threshold> --ptm <threshold> --score <threshold> --pae <threshold> --chain_id <A-E> --max_output <N>
+```
 
 </br>
 
@@ -85,8 +85,10 @@ Process ProteinMPNN fasta files into AFserver_input.json
 </br>
 
 **Usage:**
-./mpmm2afserver.sh --dir [fasta directory] --fa [target protein fasta] --max_job [number of jobs per json]
 
+```bash
+./mpmm2afserver.sh --dir <fasta directory> --fa <target protein fasta> --max_job <number of jobs per json>
+```
 </br>
 
 **Example:**
