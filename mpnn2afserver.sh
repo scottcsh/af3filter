@@ -108,7 +108,6 @@ EOF
   )
 done
 
-# 마지막 batch 닫기
 if [[ $first_in_batch -eq 0 ]]; then
   close_batch
 fi
