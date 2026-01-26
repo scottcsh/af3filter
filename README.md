@@ -89,7 +89,7 @@ PyMOL in Windows
    
    <pre>
    pdb_path = r"C:\dir\input\*.pdb"
-   output_dir = r"C:\dir\folder_for_output_thumnails"
+   output_dir = r"C:\dir\folder_for_output_thumbnails"
    </pre>
 2. Run **PyMOLWin**
 3. File > Run Script > **pdb2png_PyMOL.py**
