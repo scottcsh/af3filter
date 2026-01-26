@@ -5,6 +5,7 @@
 ## Table of Contents
 - [af3filter](#af3filter)
 - [mpnn2afserver](#mpnn2afserver)
+- [PyMOL_save_pdb_thumbnails](#PyMOL_save_pdb_thumbnails)
 
 **Installation:**
 ```bash
@@ -56,6 +57,7 @@ yum install jq -y
 ./AF3_filter.sh --dir folds_2026_01_20_02_08/ --iptm 0.7 --ptm 0.7 --score 0.8 --pae 1.8 --chain_id A --max_output 50
 ```
 
+
 # mpnn2afserver
 Process ProteinMPNN fasta files into AFserver_input.json
 
@@ -66,3 +68,6 @@ Process ProteinMPNN fasta files into AFserver_input.json
 ```bash
 ./mpnn2afserver.sh --dir seqs/ --fa 1sy6.fa --max_job 100
 ```
+
+
+# PyMOL_save_pdb_thumbnails
