@@ -103,7 +103,7 @@ Process ProteinMPNN fasta files into AFserver_input.json
 
 **Requirements:**
 
-PyMOL in Windows
+PyMOL
 
 </br>
 
@@ -115,7 +115,7 @@ PyMOL in Windows
    pdb_path = r"C:\dir\input\*.pdb"
    output_dir = r"C:\dir\folder_for_output_thumbnails"
    </pre>
-2. Run **PyMOLWin**
+2. Run **PyMOL**
 3. File > Run Script > **pdb2png_PyMOL.py**
 
 </br>
