@@ -6,6 +6,7 @@
 - [af3filter](#af3filter)
 - [mpnn2afserver](#mpnn2afserver)
 - [pdb2png](#pdb2png)
+- [af3db_rename](#af3db_rename)
   
 </br>
 
@@ -117,6 +118,43 @@ PyMOL
    </pre>
 2. Run **PyMOL**
 3. File > Run Script > **pdb2png_PyMOL.py**
+
+</br>
+
+# af3db_rename
+Rename seqkit split2 results of sharded alphafold3 genetic databases
+</br>
+Reference: (https://github.com/google-deepmind/alphafold3/blob/main/docs/performance.md#sharded-genetic-databases)
+</br>
+
+**Usage:**
+
+```bash
+./AF3DB_rename.sh --dir <dir_for_af3db_split.fasta>
+```
+</br>
+
+**Example:**
+
+
+**Input**
+<pre>
+	bfd-first_non_consensus_sequences_shuffled.part_001.fasta
+	bfd-first_non_consensus_sequences_shuffled.part_002.fasta
+							...
+	bfd-first_non_consensus_sequences_shuffled.part_064.fasta
+</pre>
+
+</br>
+
+**Output**
+<pre>
+	bfd-first_non_consensus_sequences_shuffled.fasta-00000-of-00064
+	bfd-first_non_consensus_sequences_shuffled.fasta-00001-of-00064
+							...
+	bfd-first_non_consensus_sequences_shuffled.fasta-00063-of-00064
+</pre>
+
 
 </br>
 </br>
